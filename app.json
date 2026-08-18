@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "Draw Closer",
+    "slug": "draw-closer",
+    "scheme": "drawcloser",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E1930"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.livostudio.drawcloser",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1E1930",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-notifications"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "277479b1-3292-493d-83aa-6a2fafdea15e"
+      }
+    }
+  }
+}
