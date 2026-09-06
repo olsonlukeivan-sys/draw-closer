@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ActivityIndicator, Pressable } from 'react-native';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDailyDraw } from '../hooks/useDailyDraw';
@@ -25,6 +25,9 @@ export default function TodayScreen() {
 
   return (
     <View style={styles.container}>
+      <Pressable style={styles.settingsButton} onPress={() => router.push('/settings')}>
+        <Text style={styles.settingsIcon}>⚙</Text>
+      </Pressable>
       <Text style={styles.label}>Today's cards</Text>
       <View style={styles.deck}>
         {cards.map(card => (
@@ -42,6 +45,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 24,
     gap: 16,
+  },
+  settingsButton: {
+    position: 'absolute',
+    top: 60,
+    right: 24,
+    padding: 8,
+  },
+  settingsIcon: {
+    fontSize: 20,
+    color: '#8E86A0',
   },
   label: {
     fontFamily: 'DMSans_500Medium',

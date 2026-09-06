@@ -2,18 +2,16 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useState } from 'react';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as Notifications from 'expo-notifications';
+import {
+  REMINDER_HOURS,
+  DEFAULT_REMINDER_HOUR,
+  DEFAULT_REMINDER_MINUTE,
+  formatTime,
+  setReminderSettings,
+} from '../lib/reminders';
+import { CustomTimeModal } from '../components/CustomTimeModal';
 
 export const ONBOARDING_KEY = '@draw_closer/onboarding_complete';
-
-const REMINDER_HOURS = [18, 19, 20, 21, 22];
-const DEFAULT_REMINDER_HOUR = 19;
-
-function formatHour(hour: number) {
-  const period = hour >= 12 ? 'PM' : 'AM';
-  const h = hour % 12 === 0 ? 12 : hour % 12;
-  return `${h}:00 ${period}`;
-}
 
 const steps = [
   {
@@ -30,29 +28,29 @@ const steps = [
   },
 ];
 
-async function scheduleDaily(hour: number) {
-  const { status } = await Notifications.requestPermissionsAsync();
-  if (status !== 'granted') return;
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: 'Your daily cards are ready',
-      body: "Open Draw Closer to see today's questions.",
-    },
-    trigger: {
-      type: Notifications.SchedulableTriggerInputTypes.DAILY,
-      hour,
-      minute: 0,
-    },
-  });
-}
-
 export default function OnboardingScreen() {
   const [step, setStep] = useState(0);
   const [reminderHour, setReminderHour] = useState(DEFAULT_REMINDER_HOUR);
+  const [reminderMinute, setReminderMinute] = useState(DEFAULT_REMINDER_MINUTE);
+  const [isCustomTime, setIsCustomTime] = useState(false);
+  const [showCustomPicker, setShowCustomPicker] = useState(false);
   const isLast = step === steps.length - 1;
 
+  const selectPreset = (hour: number) => {
+    setReminderHour(hour);
+    setReminderMinute(0);
+    setIsCustomTime(false);
+  };
+
+  const confirmCustomTime = (hour: number, minute: number) => {
+    setReminderHour(hour);
+    setReminderMinute(minute);
+    setIsCustomTime(true);
+    setShowCustomPicker(false);
+  };
+
   const finish = async (withNotifications: boolean) => {
-    if (withNotifications) await scheduleDaily(reminderHour);
+    await setReminderSettings({ enabled: withNotifications, hour: reminderHour, minute: reminderMinute });
     await AsyncStorage.setItem(ONBOARDING_KEY, 'true');
     router.replace('/');
   };
@@ -74,19 +72,27 @@ export default function OnboardingScreen() {
             <Text style={styles.pickerLabel}>Pick a time</Text>
             <View style={styles.chipGrid}>
               {REMINDER_HOURS.map(hour => {
-                const selected = hour === reminderHour;
+                const selected = !isCustomTime && hour === reminderHour;
                 return (
                   <Pressable
                     key={hour}
                     style={[styles.chip, selected && styles.chipSelected]}
-                    onPress={() => setReminderHour(hour)}
+                    onPress={() => selectPreset(hour)}
                   >
                     <Text style={[styles.chipText, selected && styles.chipTextSelected]}>
-                      {formatHour(hour)}
+                      {formatTime(hour, 0)}
                     </Text>
                   </Pressable>
                 );
               })}
+              <Pressable
+                style={[styles.chip, isCustomTime && styles.chipSelected]}
+                onPress={() => setShowCustomPicker(true)}
+              >
+                <Text style={[styles.chipText, isCustomTime && styles.chipTextSelected]}>
+                  {isCustomTime ? formatTime(reminderHour, reminderMinute) : 'Custom'}
+                </Text>
+              </Pressable>
             </View>
           </View>
         )}
@@ -100,7 +106,7 @@ export default function OnboardingScreen() {
         ) : (
           <>
             <Pressable style={styles.primary} onPress={() => finish(true)}>
-              <Text style={styles.primaryText}>Remind me at {formatHour(reminderHour)}</Text>
+              <Text style={styles.primaryText}>Remind me at {formatTime(reminderHour, reminderMinute)}</Text>
             </Pressable>
             <Pressable style={styles.secondary} onPress={() => finish(false)}>
               <Text style={styles.secondaryText}>Skip for now</Text>
@@ -113,6 +119,14 @@ export default function OnboardingScreen() {
           </Pressable>
         )}
       </View>
+
+      <CustomTimeModal
+        visible={showCustomPicker}
+        initialHour={reminderHour}
+        initialMinute={reminderMinute}
+        onCancel={() => setShowCustomPicker(false)}
+        onConfirm={confirmCustomTime}
+      />
     </View>
   );
 }
