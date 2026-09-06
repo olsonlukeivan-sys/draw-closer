@@ -24,9 +24,9 @@ Draw Closer is an iOS conversation card app for couples, friends, and family. Ea
 ## Current state (as of September 2026)
 - V1 was rejected by App Store review (4.2 Minimum Functionality, 2.3.10 Accurate Metadata); building v1.1 to address 4.2 before resubmission
 - Bundle ID: com.livostudio.drawcloser
-- 75 conversation prompt cards in data/cards.json (no category/tag field yet)
-- Onboarding: 3 steps (welcome, how it works, daily reminder — reminder step includes the time picker)
-- Daily draw: same 2 cards all day, advances through shuffled deck each day
+- 75 conversation prompt cards in data/cards.json, each tagged with a category: reflective (20), playful (17), deep (17), philosophical (11), romantic (10) — same 75 cards as before, no new content written yet; thinner categories (romantic, philosophical) repeat sooner (~5–6 days) than the old 37-day full-deck cycle
+- Onboarding: 4 steps (welcome, how it works, daily reminder + time picker, pick-your-lens category preference) — finishing onboarding both saves the reminder/category preferences and performs today's draw immediately, landing on cards rather than bouncing back to a picker
+- Daily draw: same 2 cards all day per category, advances through a per-category shuffled deck each day (lib/dailyDraw.ts); first open each day (if no draw yet) shows a lens picker on the main screen, pre-highlighting the last-used/preferred category
 - Notifications: daily reminder persisted as `{enabled, hour, minute}` (lib/reminders.ts), settable during onboarding or later from Settings; hour presets (6–10pm) plus a "Custom" option opening a native time picker for any exact time
 - Settings screen (app/settings.tsx) reachable via gear icon on the main screen: on/off toggle + reminder time, changes apply immediately
 - No login, no paywall
@@ -35,18 +35,20 @@ Draw Closer is an iOS conversation card app for couples, friends, and family. Ea
 ```
 app/
   _layout.tsx       — root layout, loads fonts, StatusBar, registers routes
-  index.tsx         — main card screen, settings entry point
-  onboarding.tsx    — 3-step onboarding flow
+  index.tsx         — main card screen: daily lens picker (if no draw yet today) or cards, settings entry point
+  onboarding.tsx    — 4-step onboarding flow (welcome, how it works, reminder time, lens preference)
   settings.tsx      — daily reminder on/off + time settings
 components/
   CardTile.tsx      — flip animation card component
   CustomTimeModal.tsx — native time picker (spinner sheet on iOS, system dialog on Android)
 hooks/
-  useDailyDraw.ts   — daily card draw logic with AsyncStorage
+  useDailyDraw.ts   — thin hook wrapper around lib/dailyDraw.ts, exposes today's cards/category to index.tsx
 lib/
   reminders.ts      — reminder settings persistence + notification scheduling
+  categories.ts     — category list + persisted preferred-category preference
+  dailyDraw.ts       — today's-draw persistence + per-category shuffle/pointer logic
 data/
-  cards.json        — 75 conversation prompts
+  cards.json        — 75 conversation prompts, each with a category tag
 ```
 
 ---
@@ -86,22 +88,36 @@ export default function RootLayout() {
 
 ## app/index.tsx
 ```tsx
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, Pressable } from 'react-native';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDailyDraw } from '../hooks/useDailyDraw';
 import { CardTile } from '../components/CardTile';
 import { ONBOARDING_KEY } from './onboarding';
+import { CATEGORIES, CategoryId, getPreferredCategory } from '../lib/categories';
 
 export default function TodayScreen() {
-  const { cards, loading } = useDailyDraw();
+  const { cards, category, loading, chooseCategory } = useDailyDraw();
+  const [preferred, setPreferred] = useState<CategoryId | null>(null);
 
   useEffect(() => {
     AsyncStorage.getItem(ONBOARDING_KEY).then(val => {
       if (val !== 'true') router.replace('/onboarding');
     });
+    getPreferredCategory().then(setPreferred);
   }, []);
+
+  const selectLens = (chosen: CategoryId) => {
+    setPreferred(chosen);
+    chooseCategory(chosen);
+  };
+
+  const settingsButton = (
+    <Pressable style={styles.settingsButton} onPress={() => router.push('/settings')}>
+      <Text style={styles.settingsIcon}>⚙</Text>
+    </Pressable>
+  );
 
   if (loading) {
     return (
@@ -111,11 +127,34 @@ export default function TodayScreen() {
     );
   }
 
+  if (!category) {
+    return (
+      <View style={styles.container}>
+        {settingsButton}
+        <Text style={styles.label}>Today, I'm feeling</Text>
+        <View style={styles.lensGrid}>
+          {CATEGORIES.map(cat => {
+            const selected = cat.id === preferred;
+            return (
+              <Pressable
+                key={cat.id}
+                style={[styles.lensChip, selected && styles.lensChipSelected]}
+                onPress={() => selectLens(cat.id)}
+              >
+                <Text style={[styles.lensChipText, selected && styles.lensChipTextSelected]}>
+                  {cat.label}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      <Pressable style={styles.settingsButton} onPress={() => router.push('/settings')}>
-        <Text style={styles.settingsIcon}>⚙</Text>
-      </Pressable>
+      {settingsButton}
       <Text style={styles.label}>Today's cards</Text>
       <View style={styles.deck}>
         {cards.map(card => (
@@ -155,6 +194,33 @@ const styles = StyleSheet.create({
   deck: {
     gap: 16,
   },
+  lensGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+  lensChip: {
+    flexBasis: '47%',
+    flexGrow: 1,
+    borderWidth: 1.5,
+    borderColor: 'rgba(221,169,78,0.35)',
+    borderRadius: 12,
+    paddingVertical: 18,
+    alignItems: 'center',
+    backgroundColor: '#2C2440',
+  },
+  lensChipSelected: {
+    backgroundColor: 'rgba(221,169,78,0.16)',
+    borderColor: '#DDA94E',
+  },
+  lensChipText: {
+    fontFamily: 'DMSans_600SemiBold',
+    fontSize: 16,
+    color: '#EFE6D5',
+  },
+  lensChipTextSelected: {
+    color: '#DDA94E',
+  },
 });
 ```
 
@@ -174,8 +240,12 @@ import {
   setReminderSettings,
 } from '../lib/reminders';
 import { CustomTimeModal } from '../components/CustomTimeModal';
+import { CATEGORIES, CategoryId, setPreferredCategory } from '../lib/categories';
+import { drawForCategory } from '../lib/dailyDraw';
 
 export const ONBOARDING_KEY = '@draw_closer/onboarding_complete';
+
+const DEFAULT_CATEGORY: CategoryId = 'reflective';
 
 const steps = [
   {
@@ -190,6 +260,10 @@ const steps = [
     title: 'Daily reminder',
     body: "Want a nudge each evening to open your cards?\n\nPick a time below — you can turn reminders off anytime from your phone's notification settings.",
   },
+  {
+    title: 'Pick your lens',
+    body: "Each day, choose the kind of conversation you're in the mood for.\n\nThis just sets your starting point — you can change it any day.",
+  },
 ];
 
 export default function OnboardingScreen() {
@@ -198,6 +272,8 @@ export default function OnboardingScreen() {
   const [reminderMinute, setReminderMinute] = useState(DEFAULT_REMINDER_MINUTE);
   const [isCustomTime, setIsCustomTime] = useState(false);
   const [showCustomPicker, setShowCustomPicker] = useState(false);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+  const [category, setCategory] = useState<CategoryId>(DEFAULT_CATEGORY);
   const isLast = step === steps.length - 1;
 
   const selectPreset = (hour: number) => {
@@ -213,8 +289,15 @@ export default function OnboardingScreen() {
     setShowCustomPicker(false);
   };
 
-  const finish = async (withNotifications: boolean) => {
-    await setReminderSettings({ enabled: withNotifications, hour: reminderHour, minute: reminderMinute });
+  const advanceReminderStep = (withNotifications: boolean) => {
+    setNotificationsEnabled(withNotifications);
+    setStep(s => s + 1);
+  };
+
+  const finish = async () => {
+    await setReminderSettings({ enabled: notificationsEnabled, hour: reminderHour, minute: reminderMinute });
+    await setPreferredCategory(category);
+    await drawForCategory(category);
     await AsyncStorage.setItem(ONBOARDING_KEY, 'true');
     router.replace('/');
   };
@@ -231,7 +314,7 @@ export default function OnboardingScreen() {
         <Text style={styles.title}>{steps[step].title}</Text>
         <Text style={styles.body}>{steps[step].body}</Text>
 
-        {isLast && (
+        {step === 2 && (
           <View style={styles.pickerBlock}>
             <Text style={styles.pickerLabel}>Pick a time</Text>
             <View style={styles.chipGrid}>
@@ -260,22 +343,48 @@ export default function OnboardingScreen() {
             </View>
           </View>
         )}
+
+        {step === 3 && (
+          <View style={styles.pickerBlock}>
+            <Text style={styles.pickerLabel}>Pick a lens</Text>
+            <View style={styles.chipGrid}>
+              {CATEGORIES.map(cat => {
+                const selected = cat.id === category;
+                return (
+                  <Pressable
+                    key={cat.id}
+                    style={[styles.chip, selected && styles.chipSelected]}
+                    onPress={() => setCategory(cat.id)}
+                  >
+                    <Text style={[styles.chipText, selected && styles.chipTextSelected]}>
+                      {cat.label}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        )}
       </View>
 
       <View style={styles.actions}>
-        {!isLast ? (
-          <Pressable style={styles.primary} onPress={() => setStep(s => s + 1)}>
-            <Text style={styles.primaryText}>Next</Text>
-          </Pressable>
-        ) : (
+        {step === 2 ? (
           <>
-            <Pressable style={styles.primary} onPress={() => finish(true)}>
+            <Pressable style={styles.primary} onPress={() => advanceReminderStep(true)}>
               <Text style={styles.primaryText}>Remind me at {formatTime(reminderHour, reminderMinute)}</Text>
             </Pressable>
-            <Pressable style={styles.secondary} onPress={() => finish(false)}>
+            <Pressable style={styles.secondary} onPress={() => advanceReminderStep(false)}>
               <Text style={styles.secondaryText}>Skip for now</Text>
             </Pressable>
           </>
+        ) : isLast ? (
+          <Pressable style={styles.primary} onPress={finish}>
+            <Text style={styles.primaryText}>Start drawing closer</Text>
+          </Pressable>
+        ) : (
+          <Pressable style={styles.primary} onPress={() => setStep(s => s + 1)}>
+            <Text style={styles.primaryText}>Next</Text>
+          </Pressable>
         )}
         {step > 0 && (
           <Pressable style={styles.back} onPress={() => setStep(s => s - 1)}>
@@ -827,15 +936,77 @@ const styles = StyleSheet.create({
 ## hooks/useDailyDraw.ts
 ```tsx
 import { useState, useEffect } from 'react';
+import { CategoryId } from '../lib/categories';
+import { Card, drawForCategory, getTodaysDraw } from '../lib/dailyDraw';
+
+export function useDailyDraw() {
+  const [cards, setCards] = useState<Card[]>([]);
+  const [category, setCategory] = useState<CategoryId | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getTodaysDraw().then(draw => {
+      if (draw) {
+        setCategory(draw.category);
+        setCards(draw.cards);
+      }
+      setLoading(false);
+    });
+  }, []);
+
+  const chooseCategory = async (chosen: CategoryId) => {
+    const drawnCards = await drawForCategory(chosen);
+    setCategory(chosen);
+    setCards(drawnCards);
+  };
+
+  return { cards, category, loading, chooseCategory };
+}
+```
+
+---
+
+## lib/categories.ts
+```tsx
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const PREFERRED_CATEGORY_KEY = '@draw_closer/preferred_category';
+
+export const CATEGORIES = [
+  { id: 'reflective', label: 'Reflective' },
+  { id: 'playful', label: 'Playful' },
+  { id: 'romantic', label: 'Romantic' },
+  { id: 'philosophical', label: 'Philosophical' },
+  { id: 'deep', label: 'Deep' },
+] as const;
+
+export type CategoryId = (typeof CATEGORIES)[number]['id'];
+
+export async function getPreferredCategory(): Promise<CategoryId | null> {
+  const raw = await AsyncStorage.getItem(PREFERRED_CATEGORY_KEY);
+  return raw as CategoryId | null;
+}
+
+export async function setPreferredCategory(category: CategoryId): Promise<void> {
+  await AsyncStorage.setItem(PREFERRED_CATEGORY_KEY, category);
+}
+```
+
+---
+
+## lib/dailyDraw.ts
+```tsx
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import cardsData from '../data/cards.json';
+import { CategoryId } from './categories';
 
-const KEY_SHUFFLE = '@draw_closer/shuffle';
+const KEY_SHUFFLE = '@draw_closer/shuffle_by_category';
 const KEY_DRAW = '@draw_closer/daily_draw';
 
-type Card = { id: number; text: string };
-type DailyDraw = { date: string; cardIds: [number, number] };
+export type Card = { id: number; text: string; category: CategoryId };
+type DailyDrawRecord = { date: string; category: CategoryId; cardIds: [number, number] };
 type ShuffleState = { order: number[]; pointer: number };
+type ShuffleByCategory = Partial<Record<CategoryId, ShuffleState>>;
 
 function getTodayString() {
   const d = new Date();
@@ -851,50 +1022,37 @@ function shuffle(ids: number[]): number[] {
   return arr;
 }
 
-export function useDailyDraw() {
-  const [cards, setCards] = useState<Card[]>([]);
-  const [loading, setLoading] = useState(true);
+export async function getTodaysDraw(): Promise<{ category: CategoryId; cards: Card[] } | null> {
+  const rawDraw = await AsyncStorage.getItem(KEY_DRAW);
+  if (!rawDraw) return null;
+  const draw: DailyDrawRecord = JSON.parse(rawDraw);
+  if (draw.date !== getTodayString()) return null;
+  return {
+    category: draw.category,
+    cards: (cardsData as Card[]).filter(c => draw.cardIds.includes(c.id)),
+  };
+}
 
-  useEffect(() => {
-    async function pickCards() {
-      const today = getTodayString();
+export async function drawForCategory(chosen: CategoryId): Promise<Card[]> {
+  const today = getTodayString();
+  const pool = (cardsData as Card[]).filter(c => c.category === chosen);
 
-      const rawDraw = await AsyncStorage.getItem(KEY_DRAW);
-      if (rawDraw) {
-        const draw: DailyDraw = JSON.parse(rawDraw);
-        if (draw.date === today) {
-          setCards(cardsData.filter(c => draw.cardIds.includes(c.id)));
-          setLoading(false);
-          return;
-        }
-      }
+  const rawShuffle = await AsyncStorage.getItem(KEY_SHUFFLE);
+  const shuffleByCategory: ShuffleByCategory = rawShuffle ? JSON.parse(rawShuffle) : {};
 
-      const rawShuffle = await AsyncStorage.getItem(KEY_SHUFFLE);
-      let state: ShuffleState = rawShuffle
-        ? JSON.parse(rawShuffle)
-        : { order: shuffle(cardsData.map(c => c.id)), pointer: 0 };
+  let state = shuffleByCategory[chosen];
+  if (!state || state.pointer + 1 >= state.order.length) {
+    state = { order: shuffle(pool.map(c => c.id)), pointer: 0 };
+  }
 
-      if (state.pointer + 1 >= state.order.length) {
-        state = { order: shuffle(cardsData.map(c => c.id)), pointer: 0 };
-      }
+  const cardIds: [number, number] = [state.order[state.pointer], state.order[state.pointer + 1]];
+  state.pointer += 2;
+  shuffleByCategory[chosen] = state;
 
-      const cardIds: [number, number] = [
-        state.order[state.pointer],
-        state.order[state.pointer + 1],
-      ];
-      state.pointer += 2;
+  await AsyncStorage.setItem(KEY_SHUFFLE, JSON.stringify(shuffleByCategory));
+  await AsyncStorage.setItem(KEY_DRAW, JSON.stringify({ date: today, category: chosen, cardIds }));
 
-      await AsyncStorage.setItem(KEY_SHUFFLE, JSON.stringify(state));
-      await AsyncStorage.setItem(KEY_DRAW, JSON.stringify({ date: today, cardIds }));
-
-      setCards(cardsData.filter(c => cardIds.includes(c.id)));
-      setLoading(false);
-    }
-
-    pickCards();
-  }, []);
-
-  return { cards, loading };
+  return pool.filter(c => cardIds.includes(c.id));
 }
 ```
 
@@ -1016,5 +1174,5 @@ export async function setReminderSettings(settings: ReminderSettings): Promise<b
 ---
 
 ## Planned for next update
-- Onboarding customization — capture an initial preference during onboarding that feeds into the mood/category picker below
-- Mood/category picker — tag `data/cards.json` entries with a category (reflective, playful, romantic, philosophical, deep) and let users pick a lens each time they open the app, filtering the daily draw by tag
+- (none currently — all three v1.1 features shipped: notification settings, onboarding lens preference, mood/category picker)
+- Possible follow-up: write more cards for the thinner categories (romantic: 10, philosophical: 11) so they don't repeat as quickly as reflective/playful/deep (17–20 each)
