@@ -10,8 +10,12 @@ import {
   setReminderSettings,
 } from '../lib/reminders';
 import { CustomTimeModal } from '../components/CustomTimeModal';
+import { CATEGORIES, CategoryId, setPreferredCategory } from '../lib/categories';
+import { drawForCategory } from '../lib/dailyDraw';
 
 export const ONBOARDING_KEY = '@draw_closer/onboarding_complete';
+
+const DEFAULT_CATEGORY: CategoryId = 'reflective';
 
 const steps = [
   {
@@ -26,6 +30,10 @@ const steps = [
     title: 'Daily reminder',
     body: "Want a nudge each evening to open your cards?\n\nPick a time below — you can turn reminders off anytime from your phone's notification settings.",
   },
+  {
+    title: 'Pick your lens',
+    body: "Each day, choose the kind of conversation you're in the mood for.\n\nThis just sets your starting point — you can change it any day.",
+  },
 ];
 
 export default function OnboardingScreen() {
@@ -34,6 +42,8 @@ export default function OnboardingScreen() {
   const [reminderMinute, setReminderMinute] = useState(DEFAULT_REMINDER_MINUTE);
   const [isCustomTime, setIsCustomTime] = useState(false);
   const [showCustomPicker, setShowCustomPicker] = useState(false);
+  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+  const [category, setCategory] = useState<CategoryId>(DEFAULT_CATEGORY);
   const isLast = step === steps.length - 1;
 
   const selectPreset = (hour: number) => {
@@ -49,8 +59,15 @@ export default function OnboardingScreen() {
     setShowCustomPicker(false);
   };
 
-  const finish = async (withNotifications: boolean) => {
-    await setReminderSettings({ enabled: withNotifications, hour: reminderHour, minute: reminderMinute });
+  const advanceReminderStep = (withNotifications: boolean) => {
+    setNotificationsEnabled(withNotifications);
+    setStep(s => s + 1);
+  };
+
+  const finish = async () => {
+    await setReminderSettings({ enabled: notificationsEnabled, hour: reminderHour, minute: reminderMinute });
+    await setPreferredCategory(category);
+    await drawForCategory(category);
     await AsyncStorage.setItem(ONBOARDING_KEY, 'true');
     router.replace('/');
   };
@@ -67,7 +84,7 @@ export default function OnboardingScreen() {
         <Text style={styles.title}>{steps[step].title}</Text>
         <Text style={styles.body}>{steps[step].body}</Text>
 
-        {isLast && (
+        {step === 2 && (
           <View style={styles.pickerBlock}>
             <Text style={styles.pickerLabel}>Pick a time</Text>
             <View style={styles.chipGrid}>
@@ -96,22 +113,48 @@ export default function OnboardingScreen() {
             </View>
           </View>
         )}
+
+        {step === 3 && (
+          <View style={styles.pickerBlock}>
+            <Text style={styles.pickerLabel}>Pick a lens</Text>
+            <View style={styles.chipGrid}>
+              {CATEGORIES.map(cat => {
+                const selected = cat.id === category;
+                return (
+                  <Pressable
+                    key={cat.id}
+                    style={[styles.chip, selected && styles.chipSelected]}
+                    onPress={() => setCategory(cat.id)}
+                  >
+                    <Text style={[styles.chipText, selected && styles.chipTextSelected]}>
+                      {cat.label}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+          </View>
+        )}
       </View>
 
       <View style={styles.actions}>
-        {!isLast ? (
-          <Pressable style={styles.primary} onPress={() => setStep(s => s + 1)}>
-            <Text style={styles.primaryText}>Next</Text>
-          </Pressable>
-        ) : (
+        {step === 2 ? (
           <>
-            <Pressable style={styles.primary} onPress={() => finish(true)}>
+            <Pressable style={styles.primary} onPress={() => advanceReminderStep(true)}>
               <Text style={styles.primaryText}>Remind me at {formatTime(reminderHour, reminderMinute)}</Text>
             </Pressable>
-            <Pressable style={styles.secondary} onPress={() => finish(false)}>
+            <Pressable style={styles.secondary} onPress={() => advanceReminderStep(false)}>
               <Text style={styles.secondaryText}>Skip for now</Text>
             </Pressable>
           </>
+        ) : isLast ? (
+          <Pressable style={styles.primary} onPress={finish}>
+            <Text style={styles.primaryText}>Start drawing closer</Text>
+          </Pressable>
+        ) : (
+          <Pressable style={styles.primary} onPress={() => setStep(s => s + 1)}>
+            <Text style={styles.primaryText}>Next</Text>
+          </Pressable>
         )}
         {step > 0 && (
           <Pressable style={styles.back} onPress={() => setStep(s => s - 1)}>
