@@ -373,5 +373,1505 @@
     "id": 75,
     "text": "What's something you'd like to get better at, and what's one small step toward it?",
     "category": "reflective"
+  },
+  {
+    "id": 76,
+    "text": "What's a small ritual that makes your day feel complete?",
+    "category": "reflective"
+  },
+  {
+    "id": 77,
+    "text": "What's something you noticed today that you almost missed?",
+    "category": "reflective"
+  },
+  {
+    "id": 78,
+    "text": "What's a habit from childhood you still carry with you?",
+    "category": "reflective"
+  },
+  {
+    "id": 79,
+    "text": "What's a season of the year that feels most like \"you\"?",
+    "category": "reflective"
+  },
+  {
+    "id": 80,
+    "text": "What's something ordinary that you've come to appreciate more with age?",
+    "category": "reflective"
+  },
+  {
+    "id": 81,
+    "text": "What's a walk, drive, or commute that always clears your head?",
+    "category": "reflective"
+  },
+  {
+    "id": 82,
+    "text": "What's a smell that instantly puts you at ease?",
+    "category": "reflective"
+  },
+  {
+    "id": 83,
+    "text": "What's something you do differently now than you did five years ago?",
+    "category": "reflective"
+  },
+  {
+    "id": 84,
+    "text": "What's a small win from this week that nobody else noticed?",
+    "category": "reflective"
+  },
+  {
+    "id": 85,
+    "text": "What's something you've gotten better at without really trying?",
+    "category": "reflective"
+  },
+  {
+    "id": 86,
+    "text": "What's a piece of clothing that always makes you feel like yourself?",
+    "category": "reflective"
+  },
+  {
+    "id": 87,
+    "text": "What's a routine you'd protect fiercely if someone tried to take it away?",
+    "category": "reflective"
+  },
+  {
+    "id": 88,
+    "text": "What's something you learned from a job you didn't love?",
+    "category": "reflective"
+  },
+  {
+    "id": 89,
+    "text": "What's a way you've changed that would surprise past-you?",
+    "category": "reflective"
+  },
+  {
+    "id": 90,
+    "text": "What's something you do to reset when a day goes sideways?",
+    "category": "reflective"
+  },
+  {
+    "id": 91,
+    "text": "What's a small kindness you try to practice regularly?",
+    "category": "reflective"
+  },
+  {
+    "id": 92,
+    "text": "What's a place nearby that feels like a little escape?",
+    "category": "reflective"
+  },
+  {
+    "id": 93,
+    "text": "What's something you're doing now that your younger self would be proud of?",
+    "category": "reflective"
+  },
+  {
+    "id": 94,
+    "text": "What's a lesson a pet, plant, or hobby has taught you?",
+    "category": "reflective"
+  },
+  {
+    "id": 95,
+    "text": "What's something about your morning that sets the tone for the whole day?",
+    "category": "reflective"
+  },
+  {
+    "id": 96,
+    "text": "What's a compliment you gave recently that you meant completely?",
+    "category": "reflective"
+  },
+  {
+    "id": 97,
+    "text": "What's something you've simplified in your life that made things easier?",
+    "category": "reflective"
+  },
+  {
+    "id": 98,
+    "text": "What's a memory that gets better every time you retell it?",
+    "category": "reflective"
+  },
+  {
+    "id": 99,
+    "text": "What's something you look forward to every single week?",
+    "category": "reflective"
+  },
+  {
+    "id": 100,
+    "text": "What's a piece of advice you ignored, then later realized was right?",
+    "category": "reflective"
+  },
+  {
+    "id": 101,
+    "text": "What's something you do that makes you feel productive even on a lazy day?",
+    "category": "reflective"
+  },
+  {
+    "id": 102,
+    "text": "What's a food that always feels like home?",
+    "category": "reflective"
+  },
+  {
+    "id": 103,
+    "text": "What's something you've learned to let go of?",
+    "category": "reflective"
+  },
+  {
+    "id": 104,
+    "text": "What's a friendship that has quietly shaped who you are?",
+    "category": "reflective"
+  },
+  {
+    "id": 105,
+    "text": "What's something you do now that you swore you'd never do?",
+    "category": "reflective"
+  },
+  {
+    "id": 106,
+    "text": "What's a small comfort that gets you through a rough week?",
+    "category": "reflective"
+  },
+  {
+    "id": 107,
+    "text": "What's something you noticed about yourself this year?",
+    "category": "reflective"
+  },
+  {
+    "id": 108,
+    "text": "What's a place you return to again and again, and why?",
+    "category": "reflective"
+  },
+  {
+    "id": 109,
+    "text": "What's something you're more patient with now than you used to be?",
+    "category": "reflective"
+  },
+  {
+    "id": 110,
+    "text": "What's a moment recently when you felt fully present?",
+    "category": "reflective"
+  },
+  {
+    "id": 111,
+    "text": "What's something you've learned about rest that you wish you knew sooner?",
+    "category": "reflective"
+  },
+  {
+    "id": 112,
+    "text": "What's a phrase or saying you find yourself repeating?",
+    "category": "reflective"
+  },
+  {
+    "id": 113,
+    "text": "What's something small you do for someone else without being asked?",
+    "category": "reflective"
+  },
+  {
+    "id": 114,
+    "text": "What's a time of day you feel most like yourself?",
+    "category": "reflective"
+  },
+  {
+    "id": 115,
+    "text": "What's something you've stopped apologizing for?",
+    "category": "reflective"
+  },
+  {
+    "id": 116,
+    "text": "What's a boundary you're glad you set?",
+    "category": "reflective"
+  },
+  {
+    "id": 117,
+    "text": "What's something you appreciate about your daily routine, even the boring parts?",
+    "category": "reflective"
+  },
+  {
+    "id": 118,
+    "text": "What's a book or story that stuck with you longer than you expected?",
+    "category": "reflective"
+  },
+  {
+    "id": 119,
+    "text": "What's something you've noticed gets easier with practice, even when it didn't feel like it at first?",
+    "category": "reflective"
+  },
+  {
+    "id": 120,
+    "text": "What's a small tradition you have that no one else knows about?",
+    "category": "reflective"
+  },
+  {
+    "id": 121,
+    "text": "What's something you do to celebrate the small wins?",
+    "category": "reflective"
+  },
+  {
+    "id": 122,
+    "text": "What's a piece of your morning or evening you'd never give up?",
+    "category": "reflective"
+  },
+  {
+    "id": 123,
+    "text": "What's something you've learned by watching someone you admire?",
+    "category": "reflective"
+  },
+  {
+    "id": 124,
+    "text": "What's a change you made that felt small but mattered a lot?",
+    "category": "reflective"
+  },
+  {
+    "id": 125,
+    "text": "What's something you're quietly grateful for right now?",
+    "category": "reflective"
+  },
+  {
+    "id": 126,
+    "text": "What's a place that always makes you feel more like yourself?",
+    "category": "reflective"
+  },
+  {
+    "id": 127,
+    "text": "What's something you've learned to enjoy that you used to dread?",
+    "category": "reflective"
+  },
+  {
+    "id": 128,
+    "text": "What's a memory tied to a specific smell or sound?",
+    "category": "reflective"
+  },
+  {
+    "id": 129,
+    "text": "What's something about today, so far, that you'd want to remember?",
+    "category": "reflective"
+  },
+  {
+    "id": 130,
+    "text": "What's a habit you've built that took real effort to stick with?",
+    "category": "reflective"
+  },
+  {
+    "id": 131,
+    "text": "If you had a theme song, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 132,
+    "text": "What's the most ridiculous thing you've ever been genuinely excited about?",
+    "category": "playful"
+  },
+  {
+    "id": 133,
+    "text": "If you could instantly learn one language, which would you pick and why?",
+    "category": "playful"
+  },
+  {
+    "id": 134,
+    "text": "What's a snack you'd defend to the death?",
+    "category": "playful"
+  },
+  {
+    "id": 135,
+    "text": "If you were a kitchen appliance, which one would you be?",
+    "category": "playful"
+  },
+  {
+    "id": 136,
+    "text": "What's the silliest fear you've ever had?",
+    "category": "playful"
+  },
+  {
+    "id": 137,
+    "text": "If you could swap lives with someone for a day, who would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 138,
+    "text": "What's your go-to karaoke song, even if you'd never admit it?",
+    "category": "playful"
+  },
+  {
+    "id": 139,
+    "text": "If animals could talk, which one do you think would be the rudest?",
+    "category": "playful"
+  },
+  {
+    "id": 140,
+    "text": "What's the weirdest food combination you secretly love?",
+    "category": "playful"
+  },
+  {
+    "id": 141,
+    "text": "If you could have any superpower for just one hour, what would you do with it?",
+    "category": "playful"
+  },
+  {
+    "id": 142,
+    "text": "What's a trend from the past that you wish would come back?",
+    "category": "playful"
+  },
+  {
+    "id": 143,
+    "text": "If your life had a soundtrack, what genre would dominate it?",
+    "category": "playful"
+  },
+  {
+    "id": 144,
+    "text": "What's the most useless talent you have?",
+    "category": "playful"
+  },
+  {
+    "id": 145,
+    "text": "If you could time travel to any decade for one week, which would you pick?",
+    "category": "playful"
+  },
+  {
+    "id": 146,
+    "text": "What's a movie you could watch on repeat and never get tired of?",
+    "category": "playful"
+  },
+  {
+    "id": 147,
+    "text": "If you had to eat one meal for the rest of your life, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 148,
+    "text": "What's the most fun you've had doing something completely mundane?",
+    "category": "playful"
+  },
+  {
+    "id": 149,
+    "text": "If you could be a contestant on any game show, which one?",
+    "category": "playful"
+  },
+  {
+    "id": 150,
+    "text": "What's a hobby you think you'd be surprisingly good at?",
+    "category": "playful"
+  },
+  {
+    "id": 151,
+    "text": "If you could design your own holiday, what would it celebrate?",
+    "category": "playful"
+  },
+  {
+    "id": 152,
+    "text": "What's the best costume you've ever worn or seen?",
+    "category": "playful"
+  },
+  {
+    "id": 153,
+    "text": "If you had to give a TED talk on any topic tomorrow, what would you pick?",
+    "category": "playful"
+  },
+  {
+    "id": 154,
+    "text": "What's a weird thing that always makes you laugh?",
+    "category": "playful"
+  },
+  {
+    "id": 155,
+    "text": "If you could only communicate in one accent for a year, which would you choose?",
+    "category": "playful"
+  },
+  {
+    "id": 156,
+    "text": "What's the most impulsive purchase you've ever been happy about?",
+    "category": "playful"
+  },
+  {
+    "id": 157,
+    "text": "If you were a flavor of ice cream, what would you be?",
+    "category": "playful"
+  },
+  {
+    "id": 158,
+    "text": "What's a game you loved as a kid that you'd still play now?",
+    "category": "playful"
+  },
+  {
+    "id": 159,
+    "text": "If you could add one rule to an existing sport, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 160,
+    "text": "What's the most fun \"worst\" job you've ever had?",
+    "category": "playful"
+  },
+  {
+    "id": 161,
+    "text": "If you had a pet dragon, what would you name it?",
+    "category": "playful"
+  },
+  {
+    "id": 162,
+    "text": "What's a food you refuse to eat, no matter how it's prepared?",
+    "category": "playful"
+  },
+  {
+    "id": 163,
+    "text": "If you could instantly master a dance style, which would you pick?",
+    "category": "playful"
+  },
+  {
+    "id": 164,
+    "text": "What's the funniest thing that's happened to you this year?",
+    "category": "playful"
+  },
+  {
+    "id": 165,
+    "text": "If you woke up as a different age tomorrow, what age would you want to be?",
+    "category": "playful"
+  },
+  {
+    "id": 166,
+    "text": "What's a completely useless fact you love bringing up?",
+    "category": "playful"
+  },
+  {
+    "id": 167,
+    "text": "If you could only shop at one store for the rest of your life, which would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 168,
+    "text": "What's the best prank you've ever pulled or had pulled on you?",
+    "category": "playful"
+  },
+  {
+    "id": 169,
+    "text": "If your day had a mascot, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 170,
+    "text": "What's a vacation you'd take purely for the food?",
+    "category": "playful"
+  },
+  {
+    "id": 171,
+    "text": "If you could instantly become an expert at one sport, which one?",
+    "category": "playful"
+  },
+  {
+    "id": 172,
+    "text": "What's the most fun you've had getting lost somewhere?",
+    "category": "playful"
+  },
+  {
+    "id": 173,
+    "text": "If you had to wear one outfit for a whole year, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 174,
+    "text": "What's a weirdly specific thing you're really particular about?",
+    "category": "playful"
+  },
+  {
+    "id": 175,
+    "text": "If you could bring back one discontinued snack or product, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 176,
+    "text": "What's the best \"so bad it's good\" movie you've seen?",
+    "category": "playful"
+  },
+  {
+    "id": 177,
+    "text": "If you could talk to any fictional character, who would you pick?",
+    "category": "playful"
+  },
+  {
+    "id": 178,
+    "text": "What's a smell that instantly makes you hungry?",
+    "category": "playful"
+  },
+  {
+    "id": 179,
+    "text": "If you had unlimited money for one weekend only, what would you do?",
+    "category": "playful"
+  },
+  {
+    "id": 180,
+    "text": "What's the most fun you've had without spending any money?",
+    "category": "playful"
+  },
+  {
+    "id": 181,
+    "text": "If you could switch bodies with an animal for a day, which one?",
+    "category": "playful"
+  },
+  {
+    "id": 182,
+    "text": "What's a childhood game you wish adults still played?",
+    "category": "playful"
+  },
+  {
+    "id": 183,
+    "text": "If you had to survive on one cuisine forever, which would you choose?",
+    "category": "playful"
+  },
+  {
+    "id": 184,
+    "text": "What's the strangest thing you've ever collected?",
+    "category": "playful"
+  },
+  {
+    "id": 185,
+    "text": "If you could make one silly law, what would it be?",
+    "category": "playful"
+  },
+  {
+    "id": 186,
+    "text": "What's a song that instantly puts you in a good mood?",
+    "category": "playful"
+  },
+  {
+    "id": 187,
+    "text": "If you could redesign one everyday object, what would you change?",
+    "category": "playful"
+  },
+  {
+    "id": 188,
+    "text": "What's the most fun \"yes\" you've ever said to a spontaneous plan?",
+    "category": "playful"
+  },
+  {
+    "id": 189,
+    "text": "What's a moment with me that you still think about?",
+    "category": "romantic"
+  },
+  {
+    "id": 190,
+    "text": "What's something I do that makes you feel truly seen?",
+    "category": "romantic"
+  },
+  {
+    "id": 191,
+    "text": "What's your favorite way for us to spend a quiet evening?",
+    "category": "romantic"
+  },
+  {
+    "id": 192,
+    "text": "What's a memory of us you'd want to relive exactly as it happened?",
+    "category": "romantic"
+  },
+  {
+    "id": 193,
+    "text": "What's something about our relationship that has surprised you in a good way?",
+    "category": "romantic"
+  },
+  {
+    "id": 194,
+    "text": "What's a small gesture from me that meant more than I probably realized?",
+    "category": "romantic"
+  },
+  {
+    "id": 195,
+    "text": "What's something you've learned about love from being with me?",
+    "category": "romantic"
+  },
+  {
+    "id": 196,
+    "text": "What's a future moment with me you're looking forward to?",
+    "category": "romantic"
+  },
+  {
+    "id": 197,
+    "text": "What's something that made you fall for me that you've never said out loud?",
+    "category": "romantic"
+  },
+  {
+    "id": 198,
+    "text": "What's a way I've supported you that you're especially grateful for?",
+    "category": "romantic"
+  },
+  {
+    "id": 199,
+    "text": "What's something about us as a team that you're proud of?",
+    "category": "romantic"
+  },
+  {
+    "id": 200,
+    "text": "What's a place that reminds you of me, even if I've never been there?",
+    "category": "romantic"
+  },
+  {
+    "id": 201,
+    "text": "What's something small I do that you'd miss if I stopped?",
+    "category": "romantic"
+  },
+  {
+    "id": 202,
+    "text": "What's a way we've grown closer that you didn't expect?",
+    "category": "romantic"
+  },
+  {
+    "id": 203,
+    "text": "What's something you want us to try together this year?",
+    "category": "romantic"
+  },
+  {
+    "id": 204,
+    "text": "What's a quality of mine you didn't notice at first but love now?",
+    "category": "romantic"
+  },
+  {
+    "id": 205,
+    "text": "What's a moment when you felt closest to me?",
+    "category": "romantic"
+  },
+  {
+    "id": 206,
+    "text": "What's something about the way we handle disagreements that you appreciate?",
+    "category": "romantic"
+  },
+  {
+    "id": 207,
+    "text": "What's a tradition of ours that feels the most \"us\"?",
+    "category": "romantic"
+  },
+  {
+    "id": 208,
+    "text": "What's something you'd want to tell me that you don't say enough?",
+    "category": "romantic"
+  },
+  {
+    "id": 209,
+    "text": "What's a way I make ordinary days feel special?",
+    "category": "romantic"
+  },
+  {
+    "id": 210,
+    "text": "What's something you've never had to explain to me because I just get it?",
+    "category": "romantic"
+  },
+  {
+    "id": 211,
+    "text": "What's a dream for our future you haven't said out loud yet?",
+    "category": "romantic"
+  },
+  {
+    "id": 212,
+    "text": "What's something about how we met that you love telling people?",
+    "category": "romantic"
+  },
+  {
+    "id": 213,
+    "text": "What's a way you think we balance each other out?",
+    "category": "romantic"
+  },
+  {
+    "id": 214,
+    "text": "What's a moment you knew this was something real?",
+    "category": "romantic"
+  },
+  {
+    "id": 215,
+    "text": "What's something I do when you're stressed that actually helps?",
+    "category": "romantic"
+  },
+  {
+    "id": 216,
+    "text": "What's a way our relationship has changed you for the better?",
+    "category": "romantic"
+  },
+  {
+    "id": 217,
+    "text": "What's something small about daily life with me that you love?",
+    "category": "romantic"
+  },
+  {
+    "id": 218,
+    "text": "What's a memory that still makes you laugh when you think about it?",
+    "category": "romantic"
+  },
+  {
+    "id": 219,
+    "text": "What's something you hope we never stop doing together?",
+    "category": "romantic"
+  },
+  {
+    "id": 220,
+    "text": "What's a way you show love that you think I sometimes miss?",
+    "category": "romantic"
+  },
+  {
+    "id": 221,
+    "text": "What's something about my personality that took time to appreciate?",
+    "category": "romantic"
+  },
+  {
+    "id": 222,
+    "text": "What's a place you'd love for just the two of us to go?",
+    "category": "romantic"
+  },
+  {
+    "id": 223,
+    "text": "What's something you're proud of that we built together?",
+    "category": "romantic"
+  },
+  {
+    "id": 224,
+    "text": "What's a way I've challenged you to grow?",
+    "category": "romantic"
+  },
+  {
+    "id": 225,
+    "text": "What's something about the way I love you that feels different from anything before?",
+    "category": "romantic"
+  },
+  {
+    "id": 226,
+    "text": "What's a small inside joke of ours you never get tired of?",
+    "category": "romantic"
+  },
+  {
+    "id": 227,
+    "text": "What's something you'd want future us to remember about right now?",
+    "category": "romantic"
+  },
+  {
+    "id": 228,
+    "text": "What's a way you feel most loved by me?",
+    "category": "romantic"
+  },
+  {
+    "id": 229,
+    "text": "What's something about our life together that feels lucky?",
+    "category": "romantic"
+  },
+  {
+    "id": 230,
+    "text": "What's a compliment about you that I should say more often?",
+    "category": "romantic"
+  },
+  {
+    "id": 231,
+    "text": "What's something we disagree on that you've come to appreciate about the disagreement itself?",
+    "category": "romantic"
+  },
+  {
+    "id": 232,
+    "text": "What's a moment you felt like we were truly a team?",
+    "category": "romantic"
+  },
+  {
+    "id": 233,
+    "text": "What's something about aging together that excites you?",
+    "category": "romantic"
+  },
+  {
+    "id": 234,
+    "text": "What's a way I make you feel safe?",
+    "category": "romantic"
+  },
+  {
+    "id": 235,
+    "text": "What's something small you do just to make my day better?",
+    "category": "romantic"
+  },
+  {
+    "id": 236,
+    "text": "What's a memory of us from early on that still feels vivid?",
+    "category": "romantic"
+  },
+  {
+    "id": 237,
+    "text": "What's something you want to make sure we always make time for?",
+    "category": "romantic"
+  },
+  {
+    "id": 238,
+    "text": "What's a way you think we communicate well?",
+    "category": "romantic"
+  },
+  {
+    "id": 239,
+    "text": "What's something about me you'd want to describe to a stranger?",
+    "category": "romantic"
+  },
+  {
+    "id": 240,
+    "text": "What's a moment recently when you felt grateful for us?",
+    "category": "romantic"
+  },
+  {
+    "id": 241,
+    "text": "What's something you've never had to ask me for because I already knew?",
+    "category": "romantic"
+  },
+  {
+    "id": 242,
+    "text": "What's a way our relationship has taught you patience?",
+    "category": "romantic"
+  },
+  {
+    "id": 243,
+    "text": "What's something about the life we're building that feels different from what you imagined?",
+    "category": "romantic"
+  },
+  {
+    "id": 244,
+    "text": "What's a small thing you do that's just for me?",
+    "category": "romantic"
+  },
+  {
+    "id": 245,
+    "text": "What's something you love about how we spend ordinary Sundays?",
+    "category": "romantic"
+  },
+  {
+    "id": 246,
+    "text": "What's a way you think we've become more \"us\" over time?",
+    "category": "romantic"
+  },
+  {
+    "id": 247,
+    "text": "What's something about trust between us that you value?",
+    "category": "romantic"
+  },
+  {
+    "id": 248,
+    "text": "What's a moment when you felt truly understood by me?",
+    "category": "romantic"
+  },
+  {
+    "id": 249,
+    "text": "What's something you want to celebrate about us that we haven't yet?",
+    "category": "romantic"
+  },
+  {
+    "id": 250,
+    "text": "What's a way you think I've shaped who you are?",
+    "category": "romantic"
+  },
+  {
+    "id": 251,
+    "text": "What's something about our future you're most excited about?",
+    "category": "romantic"
+  },
+  {
+    "id": 252,
+    "text": "What's a memory you'd want to frame and keep forever?",
+    "category": "romantic"
+  },
+  {
+    "id": 253,
+    "text": "What's something you want me to know right now, in this moment?",
+    "category": "romantic"
+  },
+  {
+    "id": 254,
+    "text": "Do you think people can fundamentally change, or just learn to manage who they already are?",
+    "category": "philosophical"
+  },
+  {
+    "id": 255,
+    "text": "What do you think happens to the things we forget?",
+    "category": "philosophical"
+  },
+  {
+    "id": 256,
+    "text": "Is it better to seek happiness directly, or to pursue things that create it as a side effect?",
+    "category": "philosophical"
+  },
+  {
+    "id": 257,
+    "text": "What do you think makes a life \"well lived\"?",
+    "category": "philosophical"
+  },
+  {
+    "id": 258,
+    "text": "Do you believe in fate, or do you think we make our own luck?",
+    "category": "philosophical"
+  },
+  {
+    "id": 259,
+    "text": "What's a question you don't think has a real answer, but you still think about?",
+    "category": "philosophical"
+  },
+  {
+    "id": 260,
+    "text": "Do you think humans are basically good, basically selfish, or something else entirely?",
+    "category": "philosophical"
+  },
+  {
+    "id": 261,
+    "text": "What do you think we owe to strangers?",
+    "category": "philosophical"
+  },
+  {
+    "id": 262,
+    "text": "Is it possible to truly know another person completely?",
+    "category": "philosophical"
+  },
+  {
+    "id": 263,
+    "text": "What do you think matters more: intentions or outcomes?",
+    "category": "philosophical"
+  },
+  {
+    "id": 264,
+    "text": "Do you think suffering serves a purpose, or is it just something to endure?",
+    "category": "philosophical"
+  },
+  {
+    "id": 265,
+    "text": "What do you think it means to be truly free?",
+    "category": "philosophical"
+  },
+  {
+    "id": 266,
+    "text": "Is it better to have a few deep relationships or many shallow ones?",
+    "category": "philosophical"
+  },
+  {
+    "id": 267,
+    "text": "What do you think separates a good decision from a lucky one?",
+    "category": "philosophical"
+  },
+  {
+    "id": 268,
+    "text": "Do you believe people are shaped more by nature or by circumstance?",
+    "category": "philosophical"
+  },
+  {
+    "id": 269,
+    "text": "What do you think we should teach children that we usually don't?",
+    "category": "philosophical"
+  },
+  {
+    "id": 270,
+    "text": "Is ambition something to be admired or something to be wary of?",
+    "category": "philosophical"
+  },
+  {
+    "id": 271,
+    "text": "What do you think makes something truly original?",
+    "category": "philosophical"
+  },
+  {
+    "id": 272,
+    "text": "Do you think forgiveness is for the other person or for yourself?",
+    "category": "philosophical"
+  },
+  {
+    "id": 273,
+    "text": "What do you believe is worth sacrificing comfort for?",
+    "category": "philosophical"
+  },
+  {
+    "id": 274,
+    "text": "Is it possible to be honest with yourself about your own flaws?",
+    "category": "philosophical"
+  },
+  {
+    "id": 275,
+    "text": "What do you think is the difference between being alone and being lonely?",
+    "category": "philosophical"
+  },
+  {
+    "id": 276,
+    "text": "Do you think progress always makes life better?",
+    "category": "philosophical"
+  },
+  {
+    "id": 277,
+    "text": "What's something society values that you think is overrated?",
+    "category": "philosophical"
+  },
+  {
+    "id": 278,
+    "text": "Do you believe most people are capable of real change, or do patterns tend to repeat?",
+    "category": "philosophical"
+  },
+  {
+    "id": 279,
+    "text": "What do you think gives a person their sense of identity?",
+    "category": "philosophical"
+  },
+  {
+    "id": 280,
+    "text": "Is it more important to be understood or to be accepted?",
+    "category": "philosophical"
+  },
+  {
+    "id": 281,
+    "text": "What do you think we lose by always being busy?",
+    "category": "philosophical"
+  },
+  {
+    "id": 282,
+    "text": "Do you think competition brings out the best in people or the worst?",
+    "category": "philosophical"
+  },
+  {
+    "id": 283,
+    "text": "What do you believe makes a promise worth keeping?",
+    "category": "philosophical"
+  },
+  {
+    "id": 284,
+    "text": "Is it possible to fully let go of the past?",
+    "category": "philosophical"
+  },
+  {
+    "id": 285,
+    "text": "What do you think is the point of tradition?",
+    "category": "philosophical"
+  },
+  {
+    "id": 286,
+    "text": "Do you believe most fears are rational, once you dig into them?",
+    "category": "philosophical"
+  },
+  {
+    "id": 287,
+    "text": "What do you think is the hardest kind of honesty?",
+    "category": "philosophical"
+  },
+  {
+    "id": 288,
+    "text": "Is it better to expect the best from people or to prepare for the worst?",
+    "category": "philosophical"
+  },
+  {
+    "id": 289,
+    "text": "What do you think makes a place feel like \"home\" versus just a location?",
+    "category": "philosophical"
+  },
+  {
+    "id": 290,
+    "text": "Do you believe people can be truly selfless, or is there always some self-interest?",
+    "category": "philosophical"
+  },
+  {
+    "id": 291,
+    "text": "What do you think we should be more skeptical of?",
+    "category": "philosophical"
+  },
+  {
+    "id": 292,
+    "text": "Is it possible to regret something and still believe it was the right choice?",
+    "category": "philosophical"
+  },
+  {
+    "id": 293,
+    "text": "What do you think the world needs more of right now?",
+    "category": "philosophical"
+  },
+  {
+    "id": 294,
+    "text": "Do you believe silence can say more than words?",
+    "category": "philosophical"
+  },
+  {
+    "id": 295,
+    "text": "What do you think separates knowledge from wisdom?",
+    "category": "philosophical"
+  },
+  {
+    "id": 296,
+    "text": "Is it more valuable to be right or to be kind?",
+    "category": "philosophical"
+  },
+  {
+    "id": 297,
+    "text": "What do you believe is the purpose of art?",
+    "category": "philosophical"
+  },
+  {
+    "id": 298,
+    "text": "Do you think people fear failure or fear judgment more?",
+    "category": "philosophical"
+  },
+  {
+    "id": 299,
+    "text": "What do you think we take for granted the most?",
+    "category": "philosophical"
+  },
+  {
+    "id": 300,
+    "text": "Is it possible to fully forgive without forgetting?",
+    "category": "philosophical"
+  },
+  {
+    "id": 301,
+    "text": "What do you believe makes someone trustworthy?",
+    "category": "philosophical"
+  },
+  {
+    "id": 302,
+    "text": "Do you think growth requires discomfort?",
+    "category": "philosophical"
+  },
+  {
+    "id": 303,
+    "text": "What do you think is lost when a tradition disappears?",
+    "category": "philosophical"
+  },
+  {
+    "id": 304,
+    "text": "Is it better to live for the moment or to plan for the future?",
+    "category": "philosophical"
+  },
+  {
+    "id": 305,
+    "text": "What do you believe defines a \"good\" argument, disagreement, or debate?",
+    "category": "philosophical"
+  },
+  {
+    "id": 306,
+    "text": "Do you think people change their minds through logic or through experience?",
+    "category": "philosophical"
+  },
+  {
+    "id": 307,
+    "text": "What do you think makes a question worth asking?",
+    "category": "philosophical"
+  },
+  {
+    "id": 308,
+    "text": "Is curiosity something you're born with or something you build?",
+    "category": "philosophical"
+  },
+  {
+    "id": 309,
+    "text": "What do you believe is the difference between confidence and arrogance?",
+    "category": "philosophical"
+  },
+  {
+    "id": 310,
+    "text": "Do you think most people know what they actually want?",
+    "category": "philosophical"
+  },
+  {
+    "id": 311,
+    "text": "What do you think we should let go of as a society?",
+    "category": "philosophical"
+  },
+  {
+    "id": 312,
+    "text": "Is it possible to be completely objective about your own life?",
+    "category": "philosophical"
+  },
+  {
+    "id": 313,
+    "text": "What do you believe gives work meaning beyond a paycheck?",
+    "category": "philosophical"
+  },
+  {
+    "id": 314,
+    "text": "Do you think people are more shaped by their best moments or their worst ones?",
+    "category": "philosophical"
+  },
+  {
+    "id": 315,
+    "text": "What do you think separates a habit from an identity?",
+    "category": "philosophical"
+  },
+  {
+    "id": 316,
+    "text": "Is it better to ask for forgiveness or permission, and why?",
+    "category": "philosophical"
+  },
+  {
+    "id": 317,
+    "text": "What do you believe is the most misunderstood human emotion?",
+    "category": "philosophical"
+  },
+  {
+    "id": 318,
+    "text": "What's something you've never told anyone because you're not sure how they'd react?",
+    "category": "deep"
+  },
+  {
+    "id": 319,
+    "text": "What's a wound from your past that has actually healed?",
+    "category": "deep"
+  },
+  {
+    "id": 320,
+    "text": "What's something you forgive yourself for now that you didn't used to?",
+    "category": "deep"
+  },
+  {
+    "id": 321,
+    "text": "What's a fear you still carry, even if you don't talk about it?",
+    "category": "deep"
+  },
+  {
+    "id": 322,
+    "text": "What's something you needed to hear growing up that no one said?",
+    "category": "deep"
+  },
+  {
+    "id": 323,
+    "text": "What's a moment you felt truly alone, even around other people?",
+    "category": "deep"
+  },
+  {
+    "id": 324,
+    "text": "What's something you've had to grieve that wasn't a death?",
+    "category": "deep"
+  },
+  {
+    "id": 325,
+    "text": "What's a belief about yourself you're still trying to unlearn?",
+    "category": "deep"
+  },
+  {
+    "id": 326,
+    "text": "What's something you did that you're still not sure was right?",
+    "category": "deep"
+  },
+  {
+    "id": 327,
+    "text": "What's a relationship that changed you in a way you're still processing?",
+    "category": "deep"
+  },
+  {
+    "id": 328,
+    "text": "What's something you're afraid people would think less of you for?",
+    "category": "deep"
+  },
+  {
+    "id": 329,
+    "text": "What's a moment you felt truly proud of who you'd become?",
+    "category": "deep"
+  },
+  {
+    "id": 330,
+    "text": "What's something you've kept from someone to protect them?",
+    "category": "deep"
+  },
+  {
+    "id": 331,
+    "text": "What's a part of yourself you hid for a long time?",
+    "category": "deep"
+  },
+  {
+    "id": 332,
+    "text": "What's something you needed to forgive yourself for?",
+    "category": "deep"
+  },
+  {
+    "id": 333,
+    "text": "What's a time you had to rebuild trust, in yourself or someone else?",
+    "category": "deep"
+  },
+  {
+    "id": 334,
+    "text": "What's something you carry that isn't really yours to carry?",
+    "category": "deep"
+  },
+  {
+    "id": 335,
+    "text": "What's a moment you realized you'd become someone your younger self wouldn't recognize?",
+    "category": "deep"
+  },
+  {
+    "id": 336,
+    "text": "What's something you're still working through, even quietly?",
+    "category": "deep"
+  },
+  {
+    "id": 337,
+    "text": "What's a time you chose yourself, even when it was hard?",
+    "category": "deep"
+  },
+  {
+    "id": 338,
+    "text": "What's something you wish you'd said to someone before it was too late?",
+    "category": "deep"
+  },
+  {
+    "id": 339,
+    "text": "What's a fear about the future you rarely say out loud?",
+    "category": "deep"
+  },
+  {
+    "id": 340,
+    "text": "What's something that broke you a little, and how did you come back from it?",
+    "category": "deep"
+  },
+  {
+    "id": 341,
+    "text": "What's a moment you felt truly loved for who you are, not who you were pretending to be?",
+    "category": "deep"
+  },
+  {
+    "id": 342,
+    "text": "What's something you're afraid to want?",
+    "category": "deep"
+  },
+  {
+    "id": 343,
+    "text": "What's a truth about yourself it took years to accept?",
+    "category": "deep"
+  },
+  {
+    "id": 344,
+    "text": "What's something you've done that took more courage than anyone realized?",
+    "category": "deep"
+  },
+  {
+    "id": 345,
+    "text": "What's a loss that changed how you see everything else?",
+    "category": "deep"
+  },
+  {
+    "id": 346,
+    "text": "What's something you needed to let yourself feel, but avoided for a long time?",
+    "category": "deep"
+  },
+  {
+    "id": 347,
+    "text": "What's a moment you felt like you were starting over?",
+    "category": "deep"
+  },
+  {
+    "id": 348,
+    "text": "What's something about your childhood you're still making sense of?",
+    "category": "deep"
+  },
+  {
+    "id": 349,
+    "text": "What's a time someone believed in you before you believed in yourself?",
+    "category": "deep"
+  },
+  {
+    "id": 350,
+    "text": "What's something you're scared to admit you need?",
+    "category": "deep"
+  },
+  {
+    "id": 351,
+    "text": "What's a moment of failure that ended up shaping you the most?",
+    "category": "deep"
+  },
+  {
+    "id": 352,
+    "text": "What's something you wish someone had told you was okay?",
+    "category": "deep"
+  },
+  {
+    "id": 353,
+    "text": "What's a part of your story you don't tell most people?",
+    "category": "deep"
+  },
+  {
+    "id": 354,
+    "text": "What's something you had to walk away from, even though it hurt?",
+    "category": "deep"
+  },
+  {
+    "id": 355,
+    "text": "What's a time you felt genuinely proud of how you handled pain?",
+    "category": "deep"
+  },
+  {
+    "id": 356,
+    "text": "What's something you're still learning to be honest with yourself about?",
+    "category": "deep"
+  },
+  {
+    "id": 357,
+    "text": "What's a moment that quietly changed the direction of your life?",
+    "category": "deep"
+  },
+  {
+    "id": 358,
+    "text": "What's something you've had to accept you can't control?",
+    "category": "deep"
+  },
+  {
+    "id": 359,
+    "text": "What's a fear you faced even though you weren't ready?",
+    "category": "deep"
+  },
+  {
+    "id": 360,
+    "text": "What's something you needed space to grieve properly?",
+    "category": "deep"
+  },
+  {
+    "id": 361,
+    "text": "What's a moment you felt like your true self showed up, even when it was risky?",
+    "category": "deep"
+  },
+  {
+    "id": 362,
+    "text": "What's something you're proud of surviving?",
+    "category": "deep"
+  },
+  {
+    "id": 363,
+    "text": "What's a belief you inherited that you've had to question?",
+    "category": "deep"
+  },
+  {
+    "id": 364,
+    "text": "What's something you needed permission to feel, and eventually gave yourself?",
+    "category": "deep"
+  },
+  {
+    "id": 365,
+    "text": "What's a time you chose honesty even though a lie would've been easier?",
+    "category": "deep"
+  },
+  {
+    "id": 366,
+    "text": "What's something about getting older that has been harder than you expected?",
+    "category": "deep"
+  },
+  {
+    "id": 367,
+    "text": "What's a moment you realized you were stronger than you thought?",
+    "category": "deep"
+  },
+  {
+    "id": 368,
+    "text": "What's something you're still healing from?",
+    "category": "deep"
+  },
+  {
+    "id": 369,
+    "text": "What's a time you had to disappoint someone to be true to yourself?",
+    "category": "deep"
+  },
+  {
+    "id": 370,
+    "text": "What's something you needed to hear from yourself, not anyone else?",
+    "category": "deep"
+  },
+  {
+    "id": 371,
+    "text": "What's a fear you've quietly made peace with?",
+    "category": "deep"
+  },
+  {
+    "id": 372,
+    "text": "What's something about your own resilience that surprises you?",
+    "category": "deep"
+  },
+  {
+    "id": 373,
+    "text": "What's a moment you chose vulnerability even though it scared you?",
+    "category": "deep"
+  },
+  {
+    "id": 374,
+    "text": "What's something you're finally ready to let go of?",
+    "category": "deep"
+  },
+  {
+    "id": 375,
+    "text": "What's a truth about your life right now that you haven't said out loud?",
+    "category": "deep"
   }
 ]

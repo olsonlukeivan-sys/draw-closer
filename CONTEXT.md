@@ -24,7 +24,7 @@ Draw Closer is an iOS conversation card app for couples, friends, and family. Ea
 ## Current state (as of September 2026)
 - V1 was rejected by App Store review (4.2 Minimum Functionality, 2.3.10 Accurate Metadata); building v1.1 to address 4.2 before resubmission
 - Bundle ID: com.livostudio.drawcloser
-- 75 conversation prompt cards in data/cards.json, each tagged with a category: reflective (20), playful (17), deep (17), philosophical (11), romantic (10) — same 75 cards as before, no new content written yet; thinner categories (romantic, philosophical) repeat sooner (~5–6 days) than the old 37-day full-deck cycle
+- 375 conversation prompt cards in data/cards.json — exactly 75 per category (reflective, playful, romantic, philosophical, deep), so every lens now cycles ~37 days before repeating, same as the original single-deck cadence
 - Onboarding: 4 steps (welcome, how it works, daily reminder + time picker, pick-your-lens category preference) — finishing onboarding both saves the reminder/category preferences and performs today's draw immediately, landing on cards rather than bouncing back to a picker
 - Daily draw: same 2 cards all day per category, advances through a per-category shuffled deck each day (lib/dailyDraw.ts); first open each day (if no draw yet) shows a lens picker on the main screen, pre-highlighting the last-used/preferred category
 - Notifications: daily reminder persisted as `{enabled, hour, minute}` (lib/reminders.ts), settable during onboarding or later from Settings; hour presets (6–10pm) plus a "Custom" option opening a native time picker for any exact time
@@ -1174,5 +1174,4 @@ export async function setReminderSettings(settings: ReminderSettings): Promise<b
 ---
 
 ## Planned for next update
-- (none currently — all three v1.1 features shipped: notification settings, onboarding lens preference, mood/category picker)
-- Possible follow-up: write more cards for the thinner categories (romantic: 10, philosophical: 11) so they don't repeat as quickly as reflective/playful/deep (17–20 each)
+- (none currently — all three v1.1 features shipped: notification settings, onboarding lens preference, mood/category picker with 75 cards per lens)
